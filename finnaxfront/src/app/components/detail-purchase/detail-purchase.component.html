@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<main>
+    <div class="container">
+        <div class="firts-container">
+            <h2>Detalle de Compra</h2>
+        </div>
+        <div class="second-container">
+            <h4>En esta opción podrás visualizar los detalles de los productos comprados.</h4>
+            <h5>Para la compra:  {{purchase.purchaseName}}</h5>
+        </div>
+    
+        <section class="payments-container">
+            <div class="customer-card" *ngFor="let product of purchase.listaProducts | paginate: { itemsPerPage: 6, currentPage: pageActual }; let i =index">
+                <h4>{{product.productDescription}}</h4>
+                <div class="debe">
+                    <p>Monto</p>
+                    <p>{{product.productAmount}}$</p>
+                </div>
+                <div class="opciones">
+                    <i class="fa fa-trash"></i>
+                </div>
+            </div>
+            <div *ngIf="purchase.deliveryAmount!=0">
+                <div class="customer-card" >
+                    <h4>Delivery</h4>
+                    <div class="debe">
+                        <p>Monto</p>
+                        <p>{{purchase.deliveryAmount}}</p>
+                    </div>
+                    <div class="opciones">
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+            <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+        </section>
+    </div>
+</main>

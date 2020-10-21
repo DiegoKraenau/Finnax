@@ -1,0 +1,255 @@
+
+.contenedor{
+    width: 80%;
+    height: 1800px;
+    /*background: red;*/
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.contenedor-h2{
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+
+}
+
+.contenedor-h2 h2{
+    width: 50%;
+
+}
+
+
+.contenedor-h4 {
+    width: 100%;
+  
+}
+
+
+.contenedor-h4 h4{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+/*Debe-haber y btn-agregar*/
+.haber{
+    position: absolute;
+    left: 50%;
+    font-size: 20px;
+}
+.debe{
+    position: absolute;
+    left: 60%;
+    font-size: 20px;
+}
+
+.btn-agregar{
+    position: relative;
+    display: flex;
+    background: #9890e3;
+    width: 150px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .5 all;
+    margin: 0px 20px;
+}
+
+
+
+.btn-agregar p{
+    padding-left: 5px;
+
+}
+
+.btn-agregar:hover{
+    background: #b1f4cf;
+    color: #9890e3;
+}
+
+/*Sigue con compras*/
+
+.customer-container{
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+  
+}
+
+.customer-card{
+  width: 100%;
+  height: 300px;
+  padding: 2rem;
+  box-shadow: 0px 2px 30px 0 hsl(0, 1%, 55%,.20) ;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(5,1fr);
+    grid-template-areas: 
+    "data data data data buttons"
+    "data-purchases data-purchases data-purchases data-purchases buttons"
+    "data-purchases data-purchases data-purchases data-purchases buttons"
+    "data-purchases data-purchases data-purchases data-purchases buttons"
+    "link link link link link";
+  font-size: 17px;
+}
+
+.opciones{
+    position: absolute;
+    right:15%;
+}
+
+.opciones i{
+    padding: 1rem;
+    transition: .5s all;
+    cursor: pointer;
+    color: #555555;
+}
+
+.opciones i:hover{
+    color: #9890e3;
+}
+
+/*Nuevo*/
+
+.center{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.data{
+    grid-area: data;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.data-purchases{
+    grid-area: data-purchases;
+}
+
+.buttons{
+    grid-area: buttons;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.link{
+    grid-area: link;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product{
+    width: 100%;
+    display: flex;
+    height: 20%;
+    align-items: center;
+}
+
+.name{
+    width: 85%;
+}
+
+.amount{
+    width: 15%;
+    text-align: center;
+}
+
+
+
+.btn-transparent{
+    display: flex;
+    width: 200px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50px;
+    color: #9890e3;
+    border: 2px solid #9890e3;
+    margin: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-name{
+    margin-left: 15px;
+    width: 80%;
+}
+
+/*Nuevo*/
+.credit-line{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+
+@media screen and (max-width:780px){
+    .customer-container{
+        font-size: 1rem;
+    }
+    .btn-agregar{
+        font-size: 15px;
+    }
+    .debe{
+        font-size: 15px;
+    }
+    .haber{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:414px){
+    .customer-container{
+        font-size: 0.7rem;
+    }
+    .debe{
+        display: none;
+    }
+    .haber{
+        display: none;
+    }
+
+    .contenedor-h2 h2{
+        font-size: 15px;
+    }
+    .btn-agregar{
+        font-size: 10px;
+        width: 100px;
+        height: 25px;
+    }
+
+    .contenedor-h4 h4{
+        font-size: 15px;
+    }
+    
+}
+
+@media screen and (max-width:320px){
+    .customer-card{
+        height: 4rem;
+    }
+
+
+}
+
+@media screen and (min-width:1840px){
+    .contenedor-h2 h2{
+        width: 70%;
+    }
+}

@@ -1,0 +1,84 @@
+<body>
+
+    <app-navbar></app-navbar>
+
+    <section class="contenedor">
+        <div class="contenedor-h2">
+            <h2>Compras</h2>
+            <div class="btn-agregar" (click)="createPurchase()" >
+                <i class="fa fa-plus"></i>
+                <p>Agregar</p>
+            </div>
+            <div class="btn-agregar" (click)="stateCreditLine()">
+                <i class="fa fa-plus"></i>
+                <p>Estado</p>
+            </div>
+            <p class="credit-line">Linea de crédito: {{customer.customerCreditLine}}$</p>
+        </div>
+        <div class="contenedor-h4">
+            <h4>En esta seccion se muestran las diversas compras del cliente.</h4>
+        </div>
+
+            <div class="customer-container">
+                <div *ngIf="purchases.length!=0; else empty">
+                    <div class="customer-card" *ngFor="let purchase of purchases  | paginate: { itemsPerPage: 3, currentPage: pageActual }; let i =index">
+                        <div class="data">
+                            <p>{{purchase.purchaseName}}</p>
+                            <p>Haber: {{purchase.purchaseAmount}}$</p>
+                            <p>Delivery: {{purchase.deliveryAmount}}</p>
+                            <p>Fecha: {{purchase.operationDate}}</p>
+                        </div>
+                        <div class="data-purchases" >
+                            <div *ngIf="purchase.listaProducts.length>3;else shortVersion">
+                                <div class="product" >
+                                    <p class="name">-{{purchase.listaProducts[0].productDescription}}</p>
+                                    <p class="amount">{{purchase.listaProducts[0].productAmount}}$</p>
+                                </div>
+                                <div class="product" >
+                                    <p class="name">-{{purchase.listaProducts[1].productDescription}}</p>
+                                    <p class="amount">{{purchase.listaProducts[1].productAmount}}$</p>
+                                </div>
+                                <div class="product" >
+                                    <p class="name">-{{purchase.listaProducts[2].productDescription}}</p>
+                                    <p class="amount">{{purchase.listaProducts[2].productAmount}}$</p>
+                                </div>
+                            </div>
+                            <ng-template #shortVersion>
+                                <div class="product" *ngFor="let product of purchase.listaProducts">
+                                    <p class="name">-{{product.productDescription}}</p>
+                                    <p class="amount">{{product.productAmount}}$</p>
+                                </div>
+                            </ng-template>
+                              
+                    
+                        </div>
+                        <div class="buttons">
+                            <div class="btn-transparent" (click)="createProduct(purchase.purchaseId)">
+                                <i class="fa fa-plus"></i>
+                                <p class="btn-name">Agregar Producto</p>
+                            </div>
+                            <div class="btn-transparent">
+                                <i class="fa fa-plus"></i>
+                                <p class="btn-name" (click)="registerDelivery(purchase.purchaseId)">Delivery</p>
+                            </div>
+                        </div>
+                        <div class="link" *ngIf="purchase.listaProducts.length>3">
+                            <a [routerLink]="['/detail-purchase',purchase.purchaseId]">Mas información...</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <ng-template #empty>
+                    <p class="center">El cliente no posee compras por el momento.</p>
+                </ng-template>
+                
+                <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
+            </div>
+
+       
+
+
+    </section>
+
+</body>

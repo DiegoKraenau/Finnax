@@ -1,0 +1,136 @@
+
+li{
+    list-style: none;
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    background: #9890e3;
+    color: white;
+}
+
+.logo{
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    font-size: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+nav ul li a:hover,.active{
+    background: #b1f4cf;
+    color: #9890e3;
+}
+
+.checkbtn{
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+#salir{
+    cursor: pointer;
+    transition: .5s all;
+}
+
+#salir:hover{
+    color: #b1f4cf;
+}
+
+@media screen and (max-width:845px){
+    .checkbtn{
+        display: block;
+    }
+    nav{
+        border-bottom: 1px solid black;
+    }
+
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(to bottom, #9890e3 0%, #b1f4cf 100%);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: .5s all;
+        z-index: 99;
+        
+    }
+
+    nav ul li{
+        display: block;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    nav ul li a:hover,a.active{
+        background: #b1f4cf;
+    }
+
+    #check:checked~ul{
+        left: 0;
+    }
+}
+
+@media screen and (max-width:414px){
+    nav{
+        height: 60px;
+    }
+
+
+
+   nav ul li a{
+       font-size: 15px;
+   }
+
+   nav ul{
+    top: 60px;
+   }
+
+   .logoProyecto{
+       display: block;
+       font-size: 25px;
+       line-height: 60px;
+       margin-left: -5rem;
+   }
+
+   .checkbtn{
+       font-size: 25px;
+       line-height: 60px;
+       margin-top: 1px;
+       margin-right: -5rem;
+
+   }
+
+
+
+}

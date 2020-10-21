@@ -1,0 +1,11 @@
+spring:  
+  jpa:  
+    hibernate:  
+      ddl-auto: update
+    show-sql: true
+  datasource:  
+    initialization-mode: always
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_prueba2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: admin

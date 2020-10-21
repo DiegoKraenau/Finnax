@@ -1,0 +1,72 @@
+ <app-navbar></app-navbar>
+ <script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+ <body>
+    <section class="contenedor">
+        <div class="subContenedor">
+            <div class="titulo">
+                <h2>Crear un Cliente</h2>
+            </div>
+            <div class="subtitulo">
+                <h4>Esta opcion te permitira crear un cliente ingresando sus datos.</h4>
+            </div>
+            <div class="formulario">
+                <form #myForm action="" class="formularioCliente" (submit)="refresh(myForm)">
+                    <div class="grupo">
+                        <input type="text" class="texto" required   name="customerName" [(ngModel)]="customer.customerName" >
+                        <label for="">Nombre y Apellido</label>
+                    </div>
+                    <div class="grupo">
+                        <input type="number" class="texto" required name="customerPhone" [(ngModel)]="customer.customerPhone">
+                        <label for="">Telefono</label>
+                    </div>
+                    <div class="grupo">
+                        <input type="number" step='0.01' class="texto" required name="customerAmountInterest" [(ngModel)]="customer.customerAmountInterest">
+                        <label for="">Interes</label>
+                    </div>
+                    <select class="select-css" name="interestId" required [(ngModel)]="customer.interestId" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+                        <option value=0 hidden>Selecciona el tipo de interes</option>
+                        <option value=1>Simple</option>
+                        <option value=2>Nominal</option>
+                        <option value=3>Efectiva</option>
+                    </select>
+                    <select class="select-css" required [(ngModel)]="customer.rateId" name="rateId" [disabled]="customer.interestId==1">
+                        <option value=0 hidden>Selecciona el tipo de tasa</option>
+                        <option value=1>Semanal</option>
+                        <option value=2>Quincenal</option>
+                        <option value=3>Mensual</option>
+                        <option value=4>Bimestral</option>
+                        <option value=5>Trimestral</option>
+                        <option value=6>Anual</option>
+                    </select>
+                    <select class="select-css" [disabled]="customer.interestId!=3" name="capitalizationId" required [(ngModel)]="customer.capitalizationId">
+                        <option value=0 hidden>Selecciona el tipo de capitalización</option>
+                        <option value=1>Diaria</option>
+                        <option value=2>Semanal</option>
+                        <option value=3>Quincenal</option>
+                        <option value=4>Mensual</option>
+                    </select>
+                    <div class="grupo">
+                        <input type="number" step='0.01' class="texto" required name="customerCreditLine" [(ngModel)]="customer.customerCreditLine">
+                        <label for="">Monto de credito</label>
+                    </div>
+                    <div class="grupo">
+                        <input type="number" step='0' class="texto" required  name="customerMaintenanceDays" [(ngModel)]="customer.customerMaintenanceDays">
+                        <label for="">Dias de pago de mantenimiento</label>
+                    </div>
+                    <div class="grupo">
+                        <input type="number" step='0.01' class="texto" required name="customerMaintenanceAmount" [(ngModel)]="customer.customerMaintenanceAmount">
+                        <label for="">Monto de mantenimiento</label>
+                    </div>
+                    <div class="divBtn">
+                        <input type="submit" class="btn" value="Registrar" (click)="Registrar()">
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+
+    </section>
+</body>

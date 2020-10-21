@@ -1,0 +1,24 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="logo">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label for="" class="logoProyecto">FinanX</label>
+        <ul>
+            <li class=""><a [routerLink]="['/main']" [routerLinkActive]="['active']" >Mis clientes</a></li>
+            <li class=""><a [routerLink]="['/create-customer']" [routerLinkActive]="['active']" >Crear cliente</a></li>
+            <li><i class="fa fa-sign-out" id="salir" (click)="salir()"></i></li>
+        </ul>
+    </nav>
+
+
+</body>

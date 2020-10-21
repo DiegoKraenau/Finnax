@@ -1,0 +1,169 @@
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 7rem;/*Espaciado*/
+    padding: 0 2rem;
+}
+
+.wave{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+
+.img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.img img{
+    width: 500px;
+}
+
+.create-register{
+    display: flex;
+    align-items: center;
+}
+
+
+.formulario h2{
+    margin-bottom: 5px;
+}
+
+.formulario h4{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    color: #555555;
+}
+
+.grupo{
+    width: 100%;
+    margin-top: 50px;
+    position: relative;
+}
+
+input{
+    background: none;
+    color: black;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #9890e3;
+}
+
+.grupo label{
+    color: #9890e3;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    transition: top .5s,font-size .5s,color .5s;
+}
+
+.grupo input:focus+label,
+.grupo input:valid+label{
+    top: -14px;
+    font-size: 12px;
+    color: #9890e3;
+}
+
+
+.btn{
+    display: block;
+    width: 50%;
+    height: 50px;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background: #9890e3;
+    cursor: pointer;
+    font-family: monospace;
+    background-size: 200%;
+    color: white;
+    transition: .5s;
+    text-transform: uppercase;
+}
+
+.btn:hover{
+    /*background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);*/
+    background: #b1f4cf;
+}
+.divBtn{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width:1050px){
+    .container{
+        grid-gap: 5rem;
+    }
+}
+
+@media screen and (max-width:1000px){
+    form{
+        width: 290px;
+    }
+
+    form h2{
+        font-size: 2.4 rem;
+        margin: 8px 0;
+    }
+    .img img{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:900px){
+    .img{
+        display: none;
+    }
+    .container{
+        grid-template-columns: 1fr;
+    }
+
+    .create-register{
+        justify-content: center;
+    }
+
+    .wave{
+        display: none;
+    }
+}
+
+@media screen and (max-width:414px){
+   .btn{
+       width: 100%;
+   }
+
+   .formulario h4{
+    font-size: 15px;
+    }
+
+    .formulario h2{
+        font-size: 20px;
+    }
+
+    .grupo label,.grupo input{
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width:320px){
+    form{
+        width: 260px;
+    }
+ }

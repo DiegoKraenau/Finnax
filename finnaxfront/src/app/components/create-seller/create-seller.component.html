@@ -1,0 +1,31 @@
+<body>
+    <main>
+        <div class="container">
+            <img src="../../../assets/img/fondo.png" alt="" class="wave">
+            <div class="img">
+                <img src="../../../assets/img/createUser.svg" alt="">
+            </div>
+            <div class="create-register">
+                <form #myForm action="" class="formulario" (submit)="refresh(myForm)">
+                    <h2>Registrar Usuario</h2>
+                    <h4>En esta seccion podras create una cuenta con tus datos personales.</h4>
+                    <div class="grupo">
+                        <input type="text" class="texto" required [(ngModel)]="seller.sellerName" name="sellerName">
+                        <label for="">Nombre y Apellido</label>
+                    </div>
+                    <div class="grupo">
+                        <input type="email" class="texto" required [(ngModel)]="seller.sellerEmail" name="sellerEmail">
+                        <label for="">Email</label>
+                    </div>
+                    <div class="grupo">
+                        <input type="password" class="texto" required [(ngModel)]="seller.sellerPasword" name="sellerPasword">
+                        <label for="">Contraseña</label>
+                    </div>
+                    <div class="divBtn">
+                        <input type="submit" class="btn" value="Registrar" (click)="RegisterSeller()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>

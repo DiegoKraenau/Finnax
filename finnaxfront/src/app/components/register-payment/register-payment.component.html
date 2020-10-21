@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<body>
+   
+    <section class="contenedor">
+        <div class="img">
+            <img src="../../../assets/img/regsiterPayment.svg" alt="">
+        </div>
+        <div class="subContenedor">
+            <div class="form-container" >
+                <div class="titulo">
+                    <h2>Registrar  Pago</h2>
+                </div>
+                <div class="subtitulo">
+                    <h4>Esta opción te permitirá registrar un pago especifico.</h4>
+                </div>
+                <div   class="formulario" >
+                    <form   #myForm class="formularioCliente" >
+                        <div class="grupo">
+                            <input type="text" class="texto" [(ngModel)]="payment.paymentName" name="paymentName" required>
+                            <label for="">Nombre </label>
+                        </div>
+                        <div class="grupo">
+                            <input type="number" class="texto"  required  [(ngModel)]="payment.paymentAmount" name="paymentAmount" step="any">
+                            <label for="">Monto </label>
+                        </div>
+                        <div class="grupo">
+                            <input type="date" class="texto"  required [(ngModel)]="payment.operationDate" name="operationDate">
+                            <label for="">Fecha </label>
+                        </div>
+                        <div class="divBtn">
+                            <input type="submit" class="btn" value="Registrar" (click)="registerPayment(myForm)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</body>

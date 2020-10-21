@@ -1,0 +1,28 @@
+<section class="contenedor">
+    <div class="search-bar">
+        <input type="text" placeholder="Ingresar el nombre del Cliente" [(ngModel)]="filterCustomers" name="filterCustomers">
+        <i class="fa fa-search"></i>
+    </div>
+    <div class="customer-container">
+
+        <div *ngIf="customers.length!=0; else empty">
+            <div class="customer-card"
+                *ngFor="let customer of customers | filter:filterCustomers | paginate: { itemsPerPage: 5, currentPage: pageActual }; let i =index">
+                <h4>{{customer.customerName}}</h4>
+                <div class="opciones">
+                    <a [routerLink]="['/list-purchases',customer.customerId]" [routerLinkActive]="['active']"><i class="fa fa-plus"></i></a>
+                    <i class="fa fa-trash" ></i>
+                    <i class="fa fa-edit"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <ng-template #empty>
+            <p class="center">No posee clientes por el momento.</p>
+        </ng-template>
+
+
+    </div>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+</section>

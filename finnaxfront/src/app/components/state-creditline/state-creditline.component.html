@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<main>
+    <div class="container">
+        <div class="firts-container">
+            <h2>Estado</h2>
+            <div class="btn-agregar" (click)="registerPayment()">
+                <i class="fa fa-plus"></i>
+                <p>Agregar</p>
+            </div>
+            <h3 class="data-style">Linea de crédito: {{customer.customerCreditLine}}$</h3>
+        </div>
+        <div class="second-container">
+            <h4>En esta sección podrás consultar el estado de la línea de crédito y los pagos correspondientes</h4>
+        </div>
+        <div class="third-container">
+            <h3 class="data-style">Total Pagado: {{this.totalPayment}}$</h3>
+            <h3 class="data-style">Deuda: {{customer.customerTotalDebt}}$</h3>
+            <h3 class="data-style">Línea de crédito restante: {{customer.customerCreditAvailable}}$</h3>
+        </div>
+        <div *ngIf="payments.length!=0;else empty">
+            <section class="payments-container">
+                <div class="customer-card"*ngFor="let payment of payments | paginate: { itemsPerPage: 6, currentPage: pageActual }; let i =index" >
+                    <h4>{{payment.paymentName}}</h4>
+                    <div class="haber">
+                        <p>Fecha</p>
+                        <p>{{payment.operationDate}}</p>
+                    </div>
+                    <div class="debe">
+                        <p>Monto</p>
+                        <p>{{payment.paymentAmount}}$</p>
+                    </div>
+                    <div class="opciones">
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <ng-template #empty>
+            <div class="center">
+                <p>El cliente no tiene pagos por el momento.</p>
+            </div>
+        </ng-template>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+    </div>
+</main>

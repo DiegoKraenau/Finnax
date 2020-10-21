@@ -1,0 +1,36 @@
+<body>
+    <app-navbar></app-navbar>
+    <section class="contenedor">
+        <div class="img">
+            <img src="../../../assets/img/createProduct.svg" alt="">
+        </div>
+        <div class="subContenedor">
+            <div class="form-container" >
+                <div class="titulo">
+                    <h2>Registrar  Producto</h2>
+                </div>
+                <div class="subtitulo">
+                    <h4>Esta seccion podrás registrar el producto con su monto.</h4>
+                    <h5>Para la compra:  {{purchase.purchaseName}}</h5>
+                </div>
+                <div   class="formulario" >
+                    <form   #myForm class="formularioCliente" >
+                        <div class="grupo">
+                            <input type="text" class="texto" [(ngModel)]="product.productDescription" name="productDescription" required>
+                            <label for="">Nombre </label>
+                        </div>
+                        <div class="grupo">
+                            <input type="number" class="texto"  required  [(ngModel)]="product.productAmount" name="productAmount">
+                            <label for="">Monto del producto </label>
+                        </div>
+                        <div class="divBtn">
+                            <input type="submit" class="btn" value="Registrar" (click)="registerProduct(myForm)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</body>
